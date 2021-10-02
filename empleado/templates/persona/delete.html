@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Eliminar empleado{% endblock title %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Eliminar empleado: {{object.full_name}}</h1>
+        <form class="cell" method="post"> {% csrf_token %}
+            <div class="callout">
+                <h5>Desea eliminar a este empleado?</h5>
+                <p>Su borrado sera definitivo y no podra ser recuperado</p>
+                <button type="submit" class="alert button">Confirmar</button>
+            </div>
+            
+
+
+        </form>
+    
+
+    </div>
+
+
+</div>
+
+{% endblock content %} 
+
+
+
+<!-- <h1> Eliminar empleado</h1>
+
+<form method="post"> {% csrf_token %}
+
+    <p>Confirmar que desea eliminar este registro</p>
+
+    <button type="submit">Confirmar</button
+
+</form> -->
+
+   

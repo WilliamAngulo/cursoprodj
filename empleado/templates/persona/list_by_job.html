@@ -1,0 +1,28 @@
+<h1>  Listado por cargo</h1>
+
+<li>
+
+    Marque  0   :Contador
+            1   :Administrador
+            2   :Economista
+            3   :Analista
+            4   :Otros
+  
+</li>
+
+
+<form method="GET">{% csrf_token %}
+    <input type="int" id=job name=job placeholder="Ingrese cargo aqui" >
+    <button type="submit">Buscar</button>
+</form>
+
+<ul>
+  
+    {% for e in empleados %}
+       <li>
+        {{e}}
+
+       </li> 
+    {% endfor %}
+        
+  </ul>

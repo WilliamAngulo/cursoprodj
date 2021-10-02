@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Pagina de actualizacion de empleados{% endblock title %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Registrar empleado</h1>
+        <div class="cell">
+            <form class="grid-x grid-margin-x" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="cell large-6">
+                    <label>Nombres
+                        {{ form.first_name }}
+                      
+                    </label>
+                  </div>
+                  <div class="medium-6 cell">
+                    <label>Apellidos
+                        {{ form.last_name }}
+                    </label>
+                  </div>
+                  <div class="medium-6 cell">
+                    <label>Trabajo
+                        {{ form.job }}
+                     
+                    </label>
+                  </div>
+                  <div class="medium-6 cell">
+                    <label>Departamento
+                        {{ form.departamento }}
+                      
+                    </label>
+                  </div>
+                  <div class="medium-6 cell">
+                    <label>Habilidades
+                        {{ form.habilidades }}
+                                       
+                    </label>
+                  </div>
+
+                  <div class="medium-6 cell">
+                    <label>Foto
+                        {{ form.avatar }}
+                                       
+                    </label>
+                  </div>
+
+                  <div class="cell">
+                    <button type="submit" class="success button">Guardar</button>
+
+                  </div>
+                    
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}
+    
+
+
+
+
+
+
+
+
+<!-- <h1> Registro de empleados o contratistas</h1>
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Agregar">
+</form> -->

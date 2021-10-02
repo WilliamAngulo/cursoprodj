@@ -1,0 +1,98 @@
+{% extends 'base.html' %}  
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Lista de empleados</h1>
+        <!-- <div class="cell grid-x grid-margin-x"> -->
+        <form class="cell grid-x grid-margin-x" method="GET">{% csrf_token %} 
+            <div class="cell large-7" >
+                <!-- <input type="text" placeholder="Buscar empleado"> lo inhailito porque el input yel button tienen que estar dentro de un loque for cuando usamos una peticion GET al servidor-->
+                <input type="text" name="kword" id="kword" placeholder="Buscar empleado">
+            </div>
+            <div class="cell large-5" >
+                <!-- <button type="button" class="success button">Buscar</button>              -->
+                <button type="submit" class="success button">Buscar></button>
+            </div>
+        <!-- </div> -->
+        </form>
+        <div class="cell">
+            
+            <table>
+                <thead>
+                  <tr>
+                    <th width="200">ID</th>
+                    <th>NOMBRES</th>
+                    <th width="200">APELLIDOS</th>
+                    <th width="200">DEPARTAMENTO</th>
+                    <th width="200">ACCION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for e in object_list %}
+                    <tr>
+                        <td>{{e.id}}</td>
+                        <td>{{e.first_name}}</td>
+                        <td>{{e.last_name}}</td>
+                        <td>{{e.departamento}}</td>
+                        <td><a class="button warning" href="{% url 'persona_app:empleado_detail' e.id %}">Ver</a></td> 
+                    </tr>
+                    {% endfor %}
+                  </tr>
+                </tbody>
+            </table>
+                        
+        </div>
+
+    </div>
+    <div class="cell">
+        <!-- {% if is_paginated %} -->
+        <nav aria-label="Pagination">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li class="pagination-previous">
+                    <a href="?page={{page_obj.previous_page_number}}">Atras</a>
+                </li> 
+                {% endif %}
+        
+                {% for pag in paginator.page_range %}
+                
+                {% ifequal pag page_obj.number  %}
+                <!-- <li class="current"><span class="show-for-sr">You're on page</span>{{ pag }}</li> -->
+                <li class="current">{{ pag }}</li>
+                {% else %}
+                <li><a href="?page={{ pag }}" >{{ pag }}</a></li>
+                {% endifequal %}
+                    
+
+                
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <li class="Pagination-next"><a href="?page={{page_obj.next_page_number}}">Siguiente</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+            
+        {% endif %}
+            
+        
+    </div>
+
+</div>
+{% endblock content %} 
+
+
+
+<!-- <h1>Prueba Listar_todo_empleados</h1>
+
+<ul>
+    
+    {% for e in object_list %}
+        <li>{{e}}</li>
+    {% endfor %}
+        
+</ul> -->

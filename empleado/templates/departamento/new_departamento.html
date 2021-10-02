@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+{% block title %} Pagina de Creacion de nuevo Departamento{% endblock title %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Registrar Departamento</h1>
+            <form class="cell callout grid-x grid-margin-x" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="cell large-6">
+                    <label>Nombre del Departamento
+                        {{form.nombre_departamento}}
+                    </label>
+                   
+                </div>
+                <div class="cell large-6">
+                    <label>Nombre corto del Departamento
+                        {{form.short_name_dpto}}
+                    </label>
+
+                </div>
+                <div class="cell large-6">
+                    <label>Nombre del encrgado del Departamento
+                        {{form.nombre_encargado}}
+                    </label>
+                </div>
+                <div class="cell large-6">
+                    <label>Apellidos del encrgado del Departamento
+                        {{form.apellidos_encargado}}
+                    </label>
+
+                </div>
+
+                <div class="cell">
+                    <button type="submit" class="success button">Guardar</button>
+
+                  </div>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+<!-- <h1>Crear nuevo Departamento</h1>
+
+<form method="POST">{% csrf_token %}
+    <h3>Datos del empleado en cargo del Departamento</h3>
+    <p>Nombre
+        {{form.nombre_encargado}}
+    </p>
+    <p>Apellido
+        {{form.apellidos_encargado}}
+    </p>
+    <h3>Datos del Departamento a crear</h3>
+    <p>Nombre
+        {{form.nombre_departamento}}
+    </p>
+    <p>Nombre corto
+        {{form.short_name_dpto}}
+    </p>
+    <button type="submit">Guardar</button>
+
+</form> -->
