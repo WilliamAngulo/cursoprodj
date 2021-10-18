@@ -15,8 +15,8 @@ DATABASES = {
         #'NAME': BASE_DIR / 'db.sqlite3',
         #'NAME': BASE_DIR.child('db.sqlite3'), # este cambio permite saltar invonvenientes entre unipath y sqite3
         'NAME': 'dbempleado', # este fue el nombre que dimos en el postgresql shell
-        'USER': 'williamangulo',
-        'PASSWORD' : 'todopoderoso',
+        'USER': '*************',
+        'PASSWORD' : '************',
         'HOST' : 'localhost',
         'PORT' : '5432'
     }
